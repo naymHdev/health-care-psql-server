@@ -1,10 +1,14 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application, Request, Response, urlencoded } from "express";
 import cors from "cors";
+import router from "./app/routes";
 
 const app: Application = express();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/v1", router);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Health Care API is running on port http://localhost:8000");

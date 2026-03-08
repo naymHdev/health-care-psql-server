@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { userRoutes } from "../modules/users/user.routes";
+import { userRoutes } from "../modules/users/users.routes";
 
 const router = Router();
 
@@ -11,3 +11,6 @@ const moduleRoutes = [
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));
+
+
+export default router
